@@ -56,4 +56,16 @@ public class HelloRestController {
 
     }
 
+    /**
+     * UC:5
+     * @PostMapping: mapping HTTP POST requests onto specific handler methods Use POST Request Method and pass first name and last name in the Body;
+     *URL: http://localhost:8080/hello/put/Ashish?lastName=Sahu
+     * O/P: http://localhost:8080/hello/put/Ashish?lastName=Sahu
+     */
+    @PutMapping("/hello/put/{firstName}")
+    public String sayHello(@PathVariable String firstName, @RequestParam (value = "lastName") String lastName){
+        return "Hello " + firstName + " " + lastName + " Welcome to BridgeLabz";
+
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.restapicall.controller;
 
+import com.restapicall.model.UserInfo;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -37,5 +38,22 @@ public class HelloRestController {
         return "Hello " + name + " Welcome To BridgeLabz";
     }
 
+    /**
+     * UC: 4
+     * @PostMapping : this annotation handle the post type of annotation
+     * @RequestBody : is used to convert the body of HTTP request to java class object
+     *http://localhost:8080/post?Content-type=json : URL request through POSTMAN
+     * JSON:{
+     *          "firstName":"Ashish",
+     *          "lastName" : "Sahu"
+     *
+     *      }
+     * O/P ; Hello Ashish Sahu Welcome To BeidgeLabz
+     */
+    @PostMapping("/post")
+    public String sayHelloPost(@RequestBody UserInfo userInfo ){
+        return "Hello " + userInfo.getFirstName() +" "+userInfo.getLastName() + " Welcome To BeidgeLabz";
+
+    }
 
 }
